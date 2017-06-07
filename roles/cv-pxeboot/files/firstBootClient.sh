@@ -11,10 +11,10 @@ done
 # This script runs the first boot install tasks on the hardware
 xbps-install -R http://repo.collegiumv.org/current -Syu
 xbps-install -R http://repo.collegiumv.org/current -Syu
-xbps-install -R http://repo.collegiumv.org/current -y ansible git-all python-pip
+xbps-install -R http://repo.collegiumv.org/current -y ansible git-all python-pip python-netaddr
 
-# Install ipaddr filter for python
-pip install netaddr
+# Install jmespath filter for python
+pip install jmespath
 
 # Attempt to run the main ansible installer
 ansible-pull --accept-host-key -U https://github.com/collegiumv/cv_config.git workstation.yml
