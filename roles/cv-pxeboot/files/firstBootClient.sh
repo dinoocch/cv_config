@@ -11,10 +11,13 @@ done
 # This script runs the first boot install tasks on the hardware
 xbps-install -R http://repo.collegiumv.org/current -Syu
 xbps-install -R http://repo.collegiumv.org/current -Syu
-xbps-install -R http://repo.collegiumv.org/current -y ansible git-all python-pip python-netaddr
+xbps-install -R http://repo.collegiumv.org/current -y git-all python-virtualenv base-devel python-devel libffi-devel libressl-devel
 
-# Install jmespath filter for python
-pip install jmespath
+# Install ansible requirements
+virtualenv /tmp/firstboot-depends
+source /tmp/firstboot-depends/bin/activate
+xbps-uhelper fetch "http://preseed.collegiumv.org/requirements.txt>/tmp/requirements.txt"
+pip install -r /tmp/requirements.txt
 
 # Attempt to run the main ansible installer
 ansible-pull --accept-host-key -U https://github.com/collegiumv/cv_config.git workstation.yml

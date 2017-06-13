@@ -35,3 +35,4 @@
     - fileserver.cfg
     - firstBootClient.sh
     - firstbootFileserver.sh
+    - requirements.txt
