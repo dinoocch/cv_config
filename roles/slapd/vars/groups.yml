@@ -45,6 +45,7 @@ slapd_groups:
     - m_wynn
     - phy1729
     - kulinacs
+    - tristandhill
 
 - name: Council
   gidNumber: 1340
