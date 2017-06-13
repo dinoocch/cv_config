@@ -1,0 +1,5 @@
+---
+- name: rsyslogd
+  runit:
+    name: rsyslogd
+    state: restarted

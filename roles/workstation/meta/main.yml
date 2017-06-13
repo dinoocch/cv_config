@@ -4,7 +4,8 @@ dependencies:
   - { role: xbps-mini-repo-config }
   - { role: xbps-repoconf }
   - { role: core-programs }
-  - { role: core-daemons }
+  - { role: rsyslog }
+  - { role: ntp }
   - { role: cups-client }
   - { role: cv-greeter-theme }
   - { role: awesome }

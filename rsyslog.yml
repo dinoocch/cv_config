@@ -1,0 +1,6 @@
+---
+- hosts: workstation:utility:mediaboxen
+  become: yes
+  become_method: sudo
+  roles:
+    - rsyslog

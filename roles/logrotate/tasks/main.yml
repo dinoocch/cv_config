@@ -1,0 +1,21 @@
+---
+- name: Install logrotate
+  xbps:
+    pkg: logrotate
+    state: present
+
+- name: Create logrotate.d
+  file:
+    dest: /etc/logrotate.d
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+- name: Install logrotate cron job
+  copy:
+    src: logrotate.cron
+    dest: /etc/cron.d/logrotate.cron
+    owner: root
+    group: root
+    mode: 0644

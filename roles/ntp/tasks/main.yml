@@ -1,0 +1,25 @@
+---
+- name: Install ntp
+  xbps: pkg={{ item }} state=present
+  with_items:
+    - ntp
+
+- name: Configure openntpd
+  copy: src=ntp.conf dest=/etc/ntpd.conf owner=root group=root mode=0644
+  notify:
+    - ntp
+
+- name: Install ntp rules
+  copy: src=ntp.rules dest=/etc/iptables.d/ntp.rules owner=root group=root mode=0640
+  notify:
+    - iptables
+
+- name: Disable dhcpcd ntp hook
+  file: path=/usr/libexec/50-ntp.conf state=absent
+  notify:
+    - dhcpcd
+
+- name: Enable ntpd
+  file: src=/etc/sv/{{ item }} dest=/var/service/{{ item }} state=link owner=root group=root
+  with_items:
+    - ntpd

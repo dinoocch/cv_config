@@ -1,0 +1,83 @@
+---
+- name: Install rsyslog
+  xbps:
+    pkg: rsyslog
+    state: present
+
+- name: Install rsyslog.conf
+  template:
+    src: rsyslog.conf.j2
+    dest: /etc/rsyslog.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: rsyslogd
+
+- name: Install ansible.conf
+  copy:
+    src: ansible.conf
+    dest: /etc/rsyslog.d/ansible.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: rsyslogd
+
+- name: Install remote.conf
+  copy:
+    src: remote.conf
+    dest: /etc/rsyslog.d/remote.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: rsyslog_server
+  notify: rsyslogd
+
+- name: Make rsyslog spool directory
+  file:
+    dest: /var/spool/rsyslog
+    owner: root
+    group: root
+    mode: 0750
+    state: directory
+  when: rsyslog_remote is defined
+
+- name: Install firewall rules
+  template:
+    src: rsyslog.rules.j2
+    dest: /etc/iptables.d/rsyslog.rules
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - iptables
+
+- name: Install base logrotate rules
+  copy:
+    src: base-rotate.conf
+    dest: /etc/logrotate.d/base-rotate.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install Ansible logrotate rules
+  copy:
+    src: ansible-rotate.conf
+    dest: /etc/logrotate.d/ansible-rotate.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install remote logrotate rules
+  copy:
+    src: remote-rotate.conf
+    dest: /etc/logrotate.d/remote-rotate.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: rsyslog_server
+
+- name: Enable rsyslogd
+  runit:
+    name: rsyslogd
+    enabled: yes
+    state: started
