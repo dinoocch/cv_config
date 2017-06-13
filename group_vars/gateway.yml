@@ -450,3 +450,9 @@ cv_hosts:
   - name: maldridge-2
     mac: 4c:eb:42:d9:da:e6
     addr: 192.168.42.246
+  - name: kulinacs-wired
+    mac: 54:ee:75:89:35:49
+    addr: 192.168.42.247
+  - name: kulinacs-wireless
+    mac: 5c:e0:c5:c1:cf:78
+    addr: 192.168.42.248
