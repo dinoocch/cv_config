@@ -60,6 +60,7 @@ slapd_groups:
     - dappiah
     - maldridge
     - sab160230
+    - kulinacs
 
 - name: Media Admins
   gidNumber: 1345

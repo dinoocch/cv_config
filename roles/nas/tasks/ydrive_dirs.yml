@@ -8,11 +8,3 @@
   with_items:
     - installs
     - papercut
-
-- name: Create Council Share
-  file:
-    path: /srv/ydrive/council
-    state: directory
-    owner: root
-    group: Council
-    mode: 0775

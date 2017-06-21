@@ -43,6 +43,7 @@ done
 # Update the exports for the active home folders
 secType=sys
 echo "/srv/ydrive 192.168.42.0/24(rw,no_subtree_check,sec=${secType})" > /etc/exports
+echo "/srv/council 192.168.42.0/24(rw,no_subtree_check,sec=${secType})" >> /etc/exports
 
 for home in /srv/homes/* ; do
     echo "${home} 192.168.42.0/24(rw,no_subtree_check,sec=${secType})" >> /etc/exports
