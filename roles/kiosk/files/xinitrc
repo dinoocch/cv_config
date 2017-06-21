@@ -3,4 +3,3 @@ xset s off
 xset -dpms
 
 exec feh -g 1920x1080 -F -Z -R 6 -D 6 -- /opt/announcements
-

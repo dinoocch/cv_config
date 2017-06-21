@@ -33,6 +33,35 @@
     group: kiosk
     mode: 0755
 
+- name: Ensure council mount path exists
+  file:
+    path: /opt/announcements
+    state: directory
+
+- name: Enable council nfs mount
+  mount:
+    path: /mnt/council_scroller
+    src: nfs.collegiumv.org:/srv/council
+    fstype: nfs
+    opts: nolock,noatime,intr
+    state: present
+
+- name: Copy rsync script
+  copy:
+    src: update-scroller.sh
+    dest: /home/kiosk/update-scroller.sh
+    owner: kiosk
+    group: kiosk
+    mode: 0744
+
+- name: Install scroller cron job
+  copy:
+    src: scroller.cron
+    dest: /etc/cron.d/scroller.cron
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Configure autox
   copy:
     src: conf
