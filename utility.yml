@@ -5,8 +5,9 @@
   roles:
     - network
     - xbps-repoconf
+    - rsyslog
+    - ntp
     - core-programs
-    - core-daemons
     - sshd
     - cv-netkeys
     - inspircd
