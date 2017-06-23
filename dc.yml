@@ -7,9 +7,10 @@
   roles:
     - xbps-repoconf
     - network
+    - rsyslog
     - sshd
     - cv-netkeys
-    - core-daemons
+    - ntp
     - core-programs
     - slapd
     - krb5kdc

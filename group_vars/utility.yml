@@ -17,4 +17,5 @@ acmetool:
 constellation_certificate_path: /var/lib/acme/live/constellation.collegiumv.org/fullchain
 constellation_keyfile_path: /var/lib/acme/live/constellation.collegiumv.org/privkey
 
+rsyslog_remote: ""
 rsyslog_server: True

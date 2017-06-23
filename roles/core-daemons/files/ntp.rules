@@ -1,3 +1,0 @@
-*filter
--A OUTPUT -p udp -d 192.168.42.3 --dport 123 -j ACCEPT
-COMMIT

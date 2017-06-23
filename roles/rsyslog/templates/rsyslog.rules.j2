@@ -1,5 +1,5 @@
 *filter
-{% if rsyslog_remote is defined %}
+{% if rsyslog_remote != "" %}
 -A OUTPUT -p tcp --dport {{ rsyslog_remote_port }} -j ACCEPT
 {% endif %}
 

@@ -13,3 +13,5 @@ sshd_banner: assets/sshd_banner
 sshd_AuthorizedKeysCommand: /usr/local/sbin/ssh_pubkeys
 sshd_AuthorizedKeysFile: false
 sshd_AllowGroupAlways: Server Admins
+
+rsyslog_remote: nitrogen.collegiumv.org
