@@ -35,7 +35,7 @@
 
 - name: Ensure council mount path exists
   file:
-    path: /opt/announcements
+    path: /mnt/council_scroller
     state: directory
 
 - name: Enable council nfs mount
