@@ -32,6 +32,7 @@
   with_items:
     - access.list
     - words.txt
+    - blacklist.txt
   notify:
     - account-services
 
