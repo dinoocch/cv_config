@@ -1,7 +1,15 @@
 ---
 - name: Install dependencies
   xbps:
-    pkg: "{{ dependencies }}"
+    pkg:
+      - git
+      - libffi-devel
+      - python-devel
+      - python-pip
+      - python-virtualenv
+      - uwsgi
+      - uwsgi-python
+      - mit-krb5-client
     state: present
 
 - name: Configure firewall for account_site
@@ -39,10 +47,25 @@
   git:
     repo: https://github.com/collegiumv/cv_account.git
     dest: /opt/account-services
-    version: 9afdb23
+    version: 897b6ae
     umask: "0022"
   notify:
     - account-services
+
+- name: Install CTFd pip dependencies
+  pip:
+    requirements: "/opt/account-services/requirements.txt"
+    umask: '0022'
+    virtualenv: "/opt/account-services/venv"
+    virtualenv_python: "python2"
+
+- name: Install UWSGI pip dependencies
+  pip:
+    name:
+      - psycopg2
+    umask: '0022'
+    virtualenv: "/opt/account-services/venv"
+    virtualenv_python: "python2"
 
 - name: Create config directory
   file:
