@@ -1,3 +1,8 @@
 ---
 slapd_acctService_password: "{{ lookup('file', 'secret/slapd_acctService_password') }}"
 account_salt: "{{ lookup('file', 'secret/account_salt') }}"
+dependencies:
+  - python-devel
+  - python-ldap
+  - python-Flask
+  - mit-krb5-client

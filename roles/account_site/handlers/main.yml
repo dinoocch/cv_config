@@ -1,4 +1,5 @@
 ---
 - name: account-services
-  command: sv restart account-services
-  ignore_errors: yes
+  runit:
+    name: account-services
+    state: restarted
