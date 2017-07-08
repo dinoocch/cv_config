@@ -22,3 +22,17 @@
 
 - name: Grant Server Admins full sudo
   copy: src=cv.base dest=/etc/sudoers.d/cv_base owner=root group=root mode=0644
+
+- name: Create sudo lecture folder
+  file:
+    path: /usr/local/share/sudo/
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Copy sudo lecture
+  copy: src=bee.lecture dest=/usr/local/share/sudo/bee.lecture owner=root group=root mode=0644
+
+- name: Copy sudo lecture config
+  copy: src=lecture dest=/etc/sudoers.d/lecture owner=root group=root mode=0644
