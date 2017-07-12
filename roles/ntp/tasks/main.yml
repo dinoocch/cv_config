@@ -5,7 +5,7 @@
     - ntp
 
 - name: Configure openntpd
-  copy: src=ntp.conf dest=/etc/ntpd.conf owner=root group=root mode=0644
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=0644
   notify:
     - ntp
 
