@@ -1,0 +1,15 @@
+---
+- hosts: monitor
+  become: yes
+  become_method: sudo
+  roles:
+    - network
+    - xbps-repoconf
+    - rsyslog
+    - ntp
+    - core-programs
+    - sshd
+    - cv-netkeys
+    - netlogon
+    - upsmon
+    - netdata

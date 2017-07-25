@@ -281,6 +281,11 @@ cv_hosts:
     dns:
       CNAME:
         - o
+    pf:
+      out:
+        - proto: tcp
+          dest: any
+          port: "{80 443}"
   - name: fluorine
     desc: Audio Server
     mac: 00:1d:09:77:ca:8b
