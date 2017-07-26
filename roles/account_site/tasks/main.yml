@@ -52,17 +52,9 @@
   notify:
     - account-services
 
-- name: Install CTFd pip dependencies
+- name: Install account services pip dependencies
   pip:
     requirements: "/opt/account-services/requirements.txt"
-    umask: '0022'
-    virtualenv: "/opt/account-services/venv"
-    virtualenv_python: "python2"
-
-- name: Install UWSGI pip dependencies
-  pip:
-    name:
-      - psycopg2
     umask: '0022'
     virtualenv: "/opt/account-services/venv"
     virtualenv_python: "python2"
