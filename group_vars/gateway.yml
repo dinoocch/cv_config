@@ -272,6 +272,9 @@ cv_hosts:
         - proto: tcp
           dest: repo3.voidlinux.eu
           port: 873
+        - proto: tcp
+          dest: 129.110.0.0/16
+          port: 22
     visible_to:
       - cv-byod
   - name: oxygen
