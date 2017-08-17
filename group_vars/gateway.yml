@@ -467,4 +467,6 @@ cv_hosts:
   - name: tristandhill-wireless
     mac: 78:4f:43:86:a9:d0
     addr: 192.168.42.249
-
+  - name: mwynn-wireless
+    mac: a0:88:69:70:0a:67
+    addr: 192.168.42.250
