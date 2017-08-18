@@ -1,3 +1,5 @@
 ---
 - name: cups
-  command: sv restart cupsd
+  runit:
+    name: cupsd
+    state: restarted

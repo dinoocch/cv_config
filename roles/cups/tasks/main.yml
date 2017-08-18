@@ -1,34 +1,64 @@
 ---
 - name: Add Printing Packages
-  xbps: pkg={{ item }} state=present
-  with_items:
+  xbps:
+    pkg:
     - cups
     - cups-filters
+    state: present
 
 - name: Copy CUPS configuration data
-  copy: src=cups dest=/etc owner=root group=lp mode=0644 directory_mode=0755
+  copy:
+    src: cups
+    dest: /etc
+    owner: root
+    group: lp
+    mode: 0644
+    directory_mode: 0755
   notify:
     - cups
 
 - name: Ensure driver directory exists
-  file: path=/etc/cups/ppd state=directory owner=root group=lp mode=0755
+  file:
+    path: /etc/cups/ppd
+    state: directory
+    owner: root
+    group: lp
+    mode: 0755
 
 - name: Install print drivers
-  copy: src=driver.ppd dest=/etc/cups/ppd/{{ item }}.ppd owner=root group=lp mode=0644
+  copy:
+    src: driver.ppd
+    dest: /etc/cups/ppd/{{ item }}.ppd
+    owner: root
+    group: lp
+    mode: 0644
   with_items:
     - Franklin
     - Gutenburg
     - Koster
 
 - name: Copy cupsd.conf
-  template: src=cupsd.conf dest=/etc/cups/cupsd.conf owner=root group=lp mode=0644
+  template:
+    src: cupsd.conf
+    dest: /etc/cups/cupsd.conf
+    owner: root
+    group: lp
+    mode: 0644
   notify:
     - cups
 
 - name: Copy CUPS Firewall rules
-  copy: src=cups.rules dest=/etc/iptables.d owner=root group=root mode=0640
+  copy:
+    src: cups.rules
+    dest: /etc/iptables.d
+    owner: root
+    group: root
+    mode: 0640
   notify:
     - iptables
 
 - name: Enable CUPS service
-  file: src=/etc/sv/cupsd dest=/var/service/cupsd state=link
+  runit:
+    name: cupsd
+    enabled: yes
+    state: started
