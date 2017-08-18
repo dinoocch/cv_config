@@ -6,6 +6,7 @@
   <volume fstype="nfs4" server="nfs.collegiumv.org" path="/srv/homes/%(USER)" mountpoint="~" options="sec=sys,nolock,noatime,intr" pgrp="Lounge Users" />
   <volume fstype="nfs4" server="nfs.collegiumv.org" path="/srv/ydrive" mountpoint="/mnt/ydrive" options="nolock,noatime,intr" pgrp="Lounge Users" />
   <volume fstype="nfs4" server="nfs.collegiumv.org" path="/srv/council" mountpoint="/mnt/council" options="nolock,noatime,intr" pgrp="Lounge Users" />
+  <volume fstype="nfs4" server="nfs.collegiumv.org" path="/srv/jumpdrive" mountpoint="/mnt/jumpdrive" options="nolock,noatime,intr" sgrp="Server Admins" />
   <mntoptions allow="nosuid,nodev,nolock,loop,encryption,fsck,nonempty,allow_root,allow_other" />
   <mntoptions require="nosuid,nodev,nolock,noatime,intr" />
   {% if persistMount is defined %}
