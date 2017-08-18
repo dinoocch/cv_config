@@ -43,7 +43,7 @@
     dest: /etc/cups/cupsd.conf
     owner: root
     group: lp
-    mode: 0644
+    mode: 0640
   notify:
     - cups
 
