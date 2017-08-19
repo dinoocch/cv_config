@@ -17,7 +17,7 @@ sg_globalconf:
     - { name: navobs1.wustl.edu, ip: 128.252.19.1 }
     - { name: ntp.okstate.edu, ip: 139.78.135.14 }
     - { name: omgpwned.net, ip: 76.185.189.253 }
-    - { name: repo3.voidlinux.eu, ip: 69.197.177.66 }
+    - { name: lug.utdallas.edu, ip: 129.110.92.80 }
     - { name: smtp.utdallas.edu, ip: 10.180.15.187 }
     - { name: smtp.utdallas.edu, ip: 10.180.15.188 }
     - { name: smtp.utdallas.edu, ip: 10.182.70.205 }
@@ -270,7 +270,7 @@ cv_hosts:
           dest: any
           port: "{80 443}"
         - proto: tcp
-          dest: repo3.voidlinux.eu
+          dest: lug.utdallas.edu
           port: 873
         - proto: tcp
           dest: 129.110.0.0/16
