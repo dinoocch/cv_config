@@ -84,7 +84,6 @@
       - chromium
       - firefox
       - google-chrome
-      - opera
     state: present
 
 - name: Install Scanner programs
