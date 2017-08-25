@@ -18,10 +18,8 @@ sg_globalconf:
     - { name: ntp.okstate.edu, ip: 139.78.135.14 }
     - { name: omgpwned.net, ip: 76.185.189.253 }
     - { name: lug.utdallas.edu, ip: 129.110.92.80 }
-    - { name: smtp.utdallas.edu, ip: 10.180.15.187 }
-    - { name: smtp.utdallas.edu, ip: 10.180.15.188 }
-    - { name: smtp.utdallas.edu, ip: 10.182.70.205 }
-    - { name: smtp.utdallas.edu, ip: 10.182.70.208 }
+    - { name: smtp.utdallas.edu, ip: 10.180.14.116 }
+    - { name: smtp.utdallas.edu, ip: 10.182.71.121 }
     - { name: tick.uh.edu, ip: 129.7.1.66 }
   ssh:
     permit_password: false
