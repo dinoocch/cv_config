@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -d "/mnt/council_scroller/scroller" ]; then
+    rsync -d --del /mnt/council_scroller/scroller/ /opt/announcements/
+else
+    mount -a
+fi

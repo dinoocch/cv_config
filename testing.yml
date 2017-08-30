@@ -1,0 +1,9 @@
+---
+- hosts: scroller
+  roles:
+    - rsyslog
+    - sshd
+    - cv-netkeys
+    - netlogon
+    - netdata
+    - workstation

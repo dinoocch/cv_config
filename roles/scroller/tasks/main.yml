@@ -1,0 +1,79 @@
+---
+- name: Install packages
+  xbps:
+    pkg:
+      - autox
+      - feh
+      - rsync
+      - libEGL
+    state: present
+
+- name: Create the scroller group
+  group:
+    name: scroller
+    state: present
+
+- name: Create a scroller user
+  user:
+    name: scroller
+    groups: scroller,video
+    state: present
+
+- name: Install xinitrc
+  copy:
+    src: xinitrc
+    dest: /home/scroller/.xinitrc
+    owner: scroller
+    group: scroller
+    mode: 0750
+
+- name: Ensure announcements path exists
+  file:
+    path: /opt/announcements
+    state: directory
+    owner: scroller
+    group: scroller
+    mode: 0755
+
+- name: Ensure council mount path exists
+  file:
+    path: /mnt/council_scroller
+    state: directory
+
+- name: Enable council nfs mount
+  mount:
+    path: /mnt/council_scroller
+    src: nfs.collegiumv.org:/srv/council
+    fstype: nfs
+    opts: nolock,noatime,intr
+    state: present
+
+- name: Copy rsync script
+  copy:
+    src: update-scroller
+    dest: /usr/local/sbin/update-scroller
+    owner: scroller
+    group: scroller
+    mode: 0744
+
+- name: Install scroller cron job
+  copy:
+    src: scroller.cron
+    dest: /etc/cron.d/scroller.cron
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure autox
+  copy:
+    src: conf
+    dest: /etc/sv/autox/conf
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Enable autox
+  file:
+    src: /etc/sv/autox
+    dest: /var/service/autox
+    state: link

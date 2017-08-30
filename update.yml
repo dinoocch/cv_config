@@ -1,5 +1,5 @@
 ---
-- hosts: dc:ssh:utility:audio:print:mediaboxen:workstation:kiosk
+- hosts: dc:ssh:utility:audio:print:mediaboxen:workstation:scroller
   become: yes
   become_method: sudo
   tasks:

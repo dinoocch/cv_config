@@ -1,5 +1,5 @@
 ---
-- hosts: kiosk
+- hosts: scroller
   become: yes
   become_method: sudo
   roles:
@@ -10,6 +10,6 @@
     - core-programs
     - sshd
     - cv-netkeys
-    - kiosk
+    - scroller
     - netlogon
     - netdata
