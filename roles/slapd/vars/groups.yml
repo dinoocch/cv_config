@@ -54,13 +54,13 @@ slapd_groups:
     - Fhqwhgads
     - Geo130030
     - Vartika_V
-    - asmohov
     - charibane
     - charmonium
     - dappiah
     - maldridge
     - sab160230
     - kulinacs
+    - fhtraylor
 
 - name: Media Admins
   gidNumber: 1345
