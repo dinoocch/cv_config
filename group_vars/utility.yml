@@ -12,6 +12,10 @@ acmetool:
     - site: paper.collegiumv.org
       names:
         - paper.collegiumv.org
+    - site: irc.collegiumv.org
+      names:
+        - irc.collegiumv.org
+
   hostmaster_email: cvadmins@utdallas.edu
 
 constellation_certificate_path: /var/lib/acme/live/constellation.collegiumv.org/fullchain
