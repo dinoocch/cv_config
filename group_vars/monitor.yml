@@ -16,3 +16,6 @@ influxdb:
   auth:
     user: cvadmin
     pass: "{{ lookup('file', 'secret/influxdb_cvadmin') }}"
+
+chronograf_username: cvadmin
+chronograf_password: "{{ lookup('file', 'secret/chronograf_password') }}"

@@ -1,0 +1,15 @@
+server {
+    listen 80;
+    server_name oxygen.collegiumv.org;
+
+    {% if chronograf_username is defined %}
+    auth_basic "Chronograf";
+    auth_basic_user_file /etc/nginx/.htpasswd-chronograf;
+    {% endif %}
+
+    location / {
+	proxy_set_header        X-Real-IP       $remote_addr;
+	proxy_set_header        Host            $http_host;
+	proxy_pass                      http://localhost:8888;
+    }
+}

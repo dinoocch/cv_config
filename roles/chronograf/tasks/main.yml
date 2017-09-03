@@ -1,0 +1,46 @@
+---
+- name: Install chronograf
+  xbps:
+    pkg: chronograf
+    state: present
+
+- name: Enable chronograf
+  runit:
+    name: chronograf
+    enabled: yes
+    state: started
+
+- name: Install passlib
+  pip:
+    name: passlib
+    state: present
+
+- name: Install htpasswd file
+  htpasswd:
+    path: /etc/nginx/.htpasswd-chronograf
+    name: "{{ chronograf_username }}"
+    password: "{{ chronograf_password }}"
+    owner: root
+    group: nginx
+    mode: 0640
+  when: chronograf_username is defined
+  notify:
+    - nginx
+
+- name: Copy nginx site descriptor
+  template:
+    src: chronograf.conf.j2
+    dest: /etc/nginx/sites-available/chronograf.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - nginx
+
+- name: Enable nginx site descriptor
+  file:
+    src: ../sites-available/chronograf.conf
+    dest: /etc/nginx/sites-enabled/chronograf.conf
+    state: link
+  notify:
+    - nginx

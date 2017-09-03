@@ -1,0 +1,5 @@
+---
+- name: chronograf
+  runit:
+    name: chronograf
+    state: restarted
