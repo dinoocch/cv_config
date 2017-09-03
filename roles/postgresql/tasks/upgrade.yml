@@ -1,0 +1,46 @@
+---
+- name: Create backup directory
+  file:
+    dest: /var/lib/postgresql/backups
+    owner: root
+    group: root
+    mode: 0640
+
+- name: Dump PostgreSQL database
+  shell: pg_dumpall > /var/lib/postgresql/backups/$(date -Idate)
+  become: yes
+  become_user: postgres
+
+- name: Stop PostgreSQL
+  runit:
+    name: postgresql
+    state: stopped
+
+- name: Unhold postgresql-libs
+  command: xbps-pkgdb -m unhold postgresql-libs
+
+- name: Update postgresql
+  xbps:
+    pkg:
+      - postgresql
+      - postgresql-client
+      - postgresql-libs-devel
+      - python-psycopg2
+    state: latest
+
+- name: Start PostgreSQL
+  runit:
+    name: postgresql
+    state: started
+
+- name: Wait for PostgreSQL to start
+  wait_for:
+    port: 5432
+
+- name: Restore backup
+  command: psql -f backup postgres
+  become: yes
+  become_user: postgres
+
+- name: Hold postgresql-libs
+  command: xbps-pkgdb -m hold postgresql-libs

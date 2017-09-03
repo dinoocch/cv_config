@@ -1,23 +1,4 @@
 ---
-- name: Install prerequisite database
-  xbps:
-    pkg:
-      - acl-progs
-      - postgresql
-      - postgresql-libs-devel
-      - python-psycopg2
-    state: present
-
-- name: Enable PostgreSQL
-  file:
-    src: /etc/sv/postgresql
-    dest: /var/service/postgresql
-    state: link
-
-- name: Wait for the PostgreSQL server to start
-  wait_for:
-    port: 5432
-
 - name: Create Constellation Database
   postgresql_db:
     name: constellation_db

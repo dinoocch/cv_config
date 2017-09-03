@@ -1,0 +1,5 @@
+---
+- name: postgresql
+  runit:
+    name: postgresql
+    state: restarted

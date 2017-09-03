@@ -3,3 +3,4 @@ dependencies:
   - { role: nslcd }
   - { role: nginx }
   - { role: pip }
+  - { role: postgresql }
