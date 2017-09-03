@@ -1,0 +1,76 @@
+---
+- name: Install packages
+  xbps:
+    pkg:
+      - influxdb
+    state: present
+
+- name: Add influxdb firewall rules
+  template:
+    src: influxdb.rules.j2
+    dest: /etc/iptables.d/influxdb.rules
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - iptables
+
+- name: Configure influxdb
+  template:
+    src: influxdb.conf.j2
+    dest: /etc/influxdb/influxdb.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - influxdb
+
+- name: Enable influxdb
+  runit:
+    name: influxdb
+    enabled: yes
+    state: started
+
+- name: Wait for influxdb to come up
+  wait_for:
+    port: "{{ influxdb_http_port }}"
+
+- name: Install influxdb python module
+  pip:
+    name: influxdb
+
+- name: Create influxdb users
+  influxdb_user:
+    hostname: localhost
+    authuser: "{{ influxdb.auth.user | default('root') }}"
+    authpass: "{{ influxdb.auth.pass | default('root') }}"
+    user: "{{ item.name }}"
+    password: "{{ item.password }}"
+    state: present
+    admin: "{{ item.admin }}"
+  when: influxdb is defined and influxdb.users is defined
+  with_items: "{{ influxdb.users }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Create influxdb databases
+  influxdb_database:
+    hostname: localhost
+    username: "{{ influxdb.auth.user | default('root') }}"
+    password: "{{ influxdb.auth.pass | default('root') }}"
+    database_name: "{{ item }}"
+    state: present
+  when: influxdb is defined and influxdb.databases is defined
+  with_items: "{{ influxdb.databases }}"
+
+- name: Set influxdb privileges
+  influxdb_privs:
+    hostname: localhost
+    authuser: "{{ influxdb.auth.user | default('root') }}"
+    authpass: "{{ influxdb.auth.pass | default('root') }}"
+    user: "{{ item.user }}"
+    database: "{{ item.database }}"
+    priv: "{{ item.priv }}"
+    grant_option: "{{ item.grant | default(True) }}"
+  when: influxdb is defined and influxdb.privs is defined
+  with_items: "{{ influxdb.privs }}"

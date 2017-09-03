@@ -1,0 +1,3 @@
+*filter
+-A INPUT {% if influxdb_allowed_ips is defined %}-s {{ influxdb_allowed_ips }} {% endif %}-p tcp --dport {{ influxdb_http_port }} -j ACCEPT
+COMMIT

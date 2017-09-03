@@ -1,0 +1,3 @@
+---
+influxdb_http_port: 8086
+influxdb_http_auth: 'true'

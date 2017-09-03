@@ -1,0 +1,5 @@
+---
+- name: influxdb
+  runit:
+    name: influxdb
+    state: restarted

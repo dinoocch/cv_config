@@ -1,0 +1,18 @@
+---
+influxdb:
+  users:
+    - name: cvadmin
+      password:  "{{ lookup('file', 'secret/influxdb_cvadmin') }}"
+      admin: True
+    - name: telegraf
+      password: "{{ lookup('file', 'secret/influxdb_telegraf') }}"
+      admin: False
+  databases:
+    - collegiumv
+  privs:
+    - user: telegraf
+      database: collegiumv
+      priv: write
+  auth:
+    user: cvadmin
+    pass: "{{ lookup('file', 'secret/influxdb_cvadmin') }}"

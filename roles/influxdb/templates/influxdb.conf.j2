@@ -1,0 +1,35 @@
+[meta]
+  dir = "/var/lib/influxdb/meta"
+
+[data]
+  dir = "/var/lib/influxdb/data"
+  wal-dir = "/var/lib/influxdb/wal"
+
+[coordinator]
+
+[retention]
+
+[shard-precreation]
+
+[monitor]
+
+[http]
+  enabled = true
+  bind-address = ":{{ influxdb_http_port }}"
+  auth-enabled = {{ influxdb_http_auth }}
+  log-enabled = true
+  write-tracing = false
+  pprof-enabled = false
+  https-enabled = false
+
+[subscriber]
+
+[[graphite]]
+
+[[collectd]]
+
+[[opentsdb]]
+
+[[udp]]
+
+[continuous_queries]
