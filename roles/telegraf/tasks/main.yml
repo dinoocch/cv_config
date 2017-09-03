@@ -1,0 +1,58 @@
+---
+- name: Install data collector dependencies
+  xbps:
+    pkg: lm_sensors
+    state: present
+
+- name: Install packages
+  xbps:
+    pkg:
+      - telegraf
+    state: present
+
+- name: Add telegraf firewall rules
+  template:
+    src: telegraf.rules.j2
+    dest: /etc/iptables.d/telegraf.rules
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - iptables
+
+- name: Create telegraf conf directory
+  file:
+    dest: /etc/{{ item }}
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  with_items:
+    - telegraf
+    - telegraf/telegraf.d
+
+- name: Configure telegraf
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    owner: root
+    group: _telegraf
+    mode: 0640
+  notify:
+    - telegraf
+
+- name: Configure telegraf runit service
+  copy:
+    src: telegraf.run.conf
+    dest: /etc/sv/telegraf/conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - telegraf
+
+- name: Enable telegraf
+  runit:
+    name: telegraf
+    enabled: yes
+    state: started

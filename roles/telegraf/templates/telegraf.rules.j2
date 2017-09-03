@@ -1,0 +1,3 @@
+*filter
+-A OUTPUT -d {{ telegraf_influxdb_remote }} -p tcp --dport {{ telegraf_influxdb_port }} -j ACCEPT
+COMMIT

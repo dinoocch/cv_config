@@ -1,0 +1,6 @@
+---
+telegraf_influxdb_remote: localhost
+telegraf_influxdb_port: 8086
+telegraf_influxdb_db: telegraf
+telegraf_influxdb_username: telegraf
+telegraf_influxdb_password: metricsmetricsmetricsmetrics

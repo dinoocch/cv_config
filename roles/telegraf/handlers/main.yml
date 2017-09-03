@@ -1,0 +1,5 @@
+---
+- name: telegraf
+  runit:
+    name: telegraf
+    state: restarted

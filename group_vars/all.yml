@@ -15,3 +15,7 @@ sshd_AuthorizedKeysFile: false
 sshd_AllowGroupAlways: Server Admins
 
 rsyslog_remote: nitrogen.collegiumv.org
+
+telegraf_influxdb_remote: oxygen.collegiumv.org
+telegraf_influxdb_db: collegiumv
+telegraf_influxdb_password: "{{ lookup('file', 'secret/influxdb_telegraf') }}"

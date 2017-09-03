@@ -13,3 +13,5 @@
     - netlogon
     - upsmon
     - influxdb
+    - telegraf
+    - chronograf
