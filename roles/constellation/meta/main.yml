@@ -2,3 +2,4 @@
 dependencies:
   - { role: nslcd }
   - { role: nginx }
+  - { role: pip }

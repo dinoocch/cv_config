@@ -1,14 +1,4 @@
 ---
-- name: Install firewall rules
-  copy:
-    src: constellation.rules
-    dest: /etc/iptables.d/constellation.rules
-    owner: root
-    group: root
-    mode: 0640
-  notify:
-    - iptables
-
 - name: Install prerequisite database
   xbps:
     pkg:
@@ -80,7 +70,6 @@
     pkg:
       - python3
       - python3-devel
-      - python3-pip
       - python3-virtualenv
       - libldap-devel
       - gcc

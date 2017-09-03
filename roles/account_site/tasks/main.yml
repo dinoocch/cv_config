@@ -5,7 +5,6 @@
       - git
       - libffi-devel
       - python-devel
-      - python-pip
       - python-virtualenv
       - uwsgi
       - uwsgi-python

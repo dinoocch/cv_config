@@ -4,3 +4,4 @@ dependencies:
   - { role: network }
   - { role: krb5_conf }
   - { role: nslcd }
+  - { role: pip }

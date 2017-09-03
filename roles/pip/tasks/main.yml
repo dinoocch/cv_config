@@ -1,0 +1,14 @@
+---
+- name: Install pip and pip3
+  xbps:
+    pkg:
+      - python-pip
+      - python3-pip
+
+- name: Install pip firewall rules
+  copy:
+    src: pip.rules
+    dest: /etc/iptables.d/pip.rules
+    owner: root
+    group: root
+    mode: 0640
