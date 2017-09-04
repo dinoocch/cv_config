@@ -13,4 +13,4 @@
     - nas
     - netlogon
     - upsmon
-    - netdata
+    - telegraf

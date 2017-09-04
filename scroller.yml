@@ -12,4 +12,4 @@
     - cv-netkeys
     - scroller
     - netlogon
-    - netdata
+    - telegraf

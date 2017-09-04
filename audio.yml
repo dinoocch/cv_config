@@ -14,4 +14,4 @@
     - netlogon
     - nut-server
     - upsmon
-    - netdata
+    - telegraf

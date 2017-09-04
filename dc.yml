@@ -16,4 +16,4 @@
     - krb5kdc
     - netlogon
     - upsmon
-    - netdata
+    - telegraf

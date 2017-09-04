@@ -14,4 +14,4 @@
     - ssh-box
     - netlogon
     - upsmon
-    - netdata
+    - telegraf
