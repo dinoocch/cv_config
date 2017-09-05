@@ -5,6 +5,5 @@
     - sshd
     - cv-netkeys
     - netlogon
-    - netdata
-    - workstation
     - telegraf
+    - workstation
