@@ -1,6 +1,6 @@
 ---
 - hosts: nas
-  become: yes
+  become: true
   become_method: sudo
   roles:
     - network

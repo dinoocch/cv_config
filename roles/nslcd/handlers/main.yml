@@ -1,2 +1,3 @@
+---
 - name: nslcd
   command: sv restart nslcd

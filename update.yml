@@ -1,7 +1,11 @@
 ---
 - hosts: dc:ssh:utility:audio:print:mediaboxen:workstation:scroller
-  become: yes
+  become: true
   become_method: sudo
   tasks:
-    - xbps: update_cache=yes upgrade=yes
-    - xbps: update_cache=yes upgrade=yes
+    - xbps:
+        update_cache: true
+        upgrade: true
+    - xbps:
+        update_cache: true
+        upgrade: true

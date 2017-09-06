@@ -7,5 +7,5 @@
 - name: Enable crond
   runit:
     name: crond
-    enabled: yes
+    enabled: true
     state: started

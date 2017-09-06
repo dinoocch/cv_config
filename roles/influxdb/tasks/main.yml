@@ -28,7 +28,7 @@
 - name: Enable influxdb
   runit:
     name: influxdb
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Wait for influxdb to come up

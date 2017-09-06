@@ -1,6 +1,11 @@
 ---
 - name: Install core scripts
-  copy: src={{ item }} dest=/usr/local/bin/{{ item }} owner=root group=root mode=0755
+  copy:
+    src: '{{ item }}'
+    dest: /usr/local/bin/{{ item }}
+    owner: root
+    group: root
+    mode: 0755
   with_items:
     - cv_real_users
     - cv_reboot
@@ -9,12 +14,13 @@
     - modsession
 
 - name: Install core tools
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - acl-progs
-    - cyrus-sasl-modules-gssapi
-    - dialog
-    - htop
-    - ncurses-term
-    - tmux
-    - zsh
+  xbps:
+    pkg:
+      - acl-progs
+      - cyrus-sasl-modules-gssapi
+      - dialog
+      - htop
+      - ncurses-term
+      - tmux
+      - zsh
+    state: present

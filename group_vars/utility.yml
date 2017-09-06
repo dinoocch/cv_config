@@ -22,4 +22,4 @@ constellation_certificate_path: /var/lib/acme/live/constellation.collegiumv.org/
 constellation_keyfile_path: /var/lib/acme/live/constellation.collegiumv.org/privkey
 
 rsyslog_remote: ""
-rsyslog_server: True
+rsyslog_server: true

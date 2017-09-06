@@ -1,6 +1,6 @@
 ---
 rsyslog_remote: ""
-rsyslog_server: False
+rsyslog_server: false
 rsyslog_mark_period: 3600
 rsyslog_default_permissions: "0640"
 rsyslog_remote_port: 514

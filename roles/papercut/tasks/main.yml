@@ -23,7 +23,7 @@
     group: root
     mode: 0640
   notify:
-  - iptables
+    - iptables
 
 - name: Retrieve the PaperCut archive
   get_url:
@@ -39,7 +39,7 @@
   args:
     chdir: /home/papercut
     creates: /home/papercut/papercut
-  become: yes
+  become: true
   become_user: papercut
   when: install.changed
 
@@ -53,7 +53,7 @@
   patch:
     dest: /home/papercut/papercut/install
     src: /tmp/install.patch
-    remote_src: yes
+    remote_src: true
   when: install.changed
 
 - name: Remove patch file
@@ -66,7 +66,7 @@
   command: ./install
   args:
     chdir: /home/papercut/papercut
-  become: yes
+  become: true
   become_user: papercut
   when: install.changed
 
@@ -149,7 +149,7 @@
   runit:
     name: "{{ item }}"
     state: started
-    enabled: yes
+    enabled: true
   with_items:
     - pc-connection-monitor
     - pc-event-monitor

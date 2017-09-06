@@ -1,3 +1,4 @@
+---
 - name: Ensure ldap config directory exists
   file:
     path: /etc/openldap

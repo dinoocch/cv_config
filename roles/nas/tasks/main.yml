@@ -48,24 +48,24 @@
     state: present
     checksum: sha256
     compression: lz4
-    atime: off
+    atime: false
 
 - name: Set /srv/ ZFS properties
   zfs:
     name: tank/srv
     state: present
     mountpoint: /srv
-    canmount: off
-    exec: off
-    setuid: off
+    canmount: false
+    exec: false
+    setuid: false
 
 - name: Set /archives/ ZFS properties
   zfs:
     name: tank/archives
     state: present
-    canmount: off
-    exec: off
-    setuid: off
+    canmount: false
+    exec: false
+    setuid: false
 
 - name: Make propertyless children
   zfs:

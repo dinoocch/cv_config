@@ -1,79 +1,79 @@
 ---
 slapd_groups:
-- name: Pantheon
-  gidNumber: 31337
-  members:
-    - ahalbert
-    - ahmedusthefirst
-    - Bardiya
-    - cliffhanger
-    - Dragon
-    - ErikLee
-    - kjh061000
-    - MatchesMalone
-    - phy1729
-    - maldridge
-    - revertTS
-    - thechairman
-    - vanquish
+  - name: Pantheon
+    gidNumber: 31337
+    members:
+      - ahalbert
+      - ahmedusthefirst
+      - Bardiya
+      - cliffhanger
+      - Dragon
+      - ErikLee
+      - kjh061000
+      - MatchesMalone
+      - phy1729
+      - maldridge
+      - revertTS
+      - thechairman
+      - vanquish
 
-- name: Paper Creditors
-  gidNumber: 1455
-  members:
-    - sheila.kelly
-    - vbrunell
-    - Wendik
+  - name: Paper Creditors
+    gidNumber: 1455
+    members:
+      - sheila.kelly
+      - vbrunell
+      - Wendik
 
-- name: Realm Admins
-  gidNumber: 1337
-  members:
-    - harpham
-    - maldridge
-    - kulinacs
+  - name: Realm Admins
+    gidNumber: 1337
+    members:
+      - harpham
+      - maldridge
+      - kulinacs
 
-- name: Local Admins
-  gidNumber: 9271
-  members:
-    - Fhqwhgads
-    - dangerontheranger
+  - name: Local Admins
+    gidNumber: 9271
+    members:
+      - Fhqwhgads
+      - dangerontheranger
 
-- name: Server Admins
-  gidNumber: 1336
-  members:
-    - maldridge
-    - dinoocch
-    - m_wynn
-    - phy1729
-    - kulinacs
-    - tristandhill
+  - name: Server Admins
+    gidNumber: 1336
+    members:
+      - maldridge
+      - dinoocch
+      - m_wynn
+      - phy1729
+      - kulinacs
+      - tristandhill
 
-- name: Council
-  gidNumber: 1340
-  members:
-    - Ali
-    - Fhqwhgads
-    - Geo130030
-    - Vartika_V
-    - charibane
-    - charmonium
-    - dappiah
-    - maldridge
-    - sab160230
-    - kulinacs
-    - fhtraylor
+  - name: Council
+    gidNumber: 1340
+    members:
+      - Ali
+      - Fhqwhgads
+      - Geo130030
+      - Vartika_V
+      - charibane
+      - charmonium
+      - dappiah
+      - maldridge
+      - sab160230
+      - kulinacs
+      - fhtraylor
 
-- name: Media Admins
-  gidNumber: 1345
-  members:
-    - kusoTTK
-    - Fhqwhgads
-    - dangerontheranger
+  - name: Media Admins
+    gidNumber: 1345
+    members:
+      - kusoTTK
+      - Fhqwhgads
+      - dangerontheranger
 
-- name: Honors College Staff
-  gidNumber: 1350
-  members:
-    - Wendik
-    - harpham
-    - pxm166330
-    - sheila.kelly
-    - vbrunell
+  - name: Honors College Staff
+    gidNumber: 1350
+    members:
+      - Wendik
+      - harpham
+      - pxm166330
+      - sheila.kelly
+      - vbrunell

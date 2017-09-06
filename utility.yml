@@ -1,6 +1,6 @@
 ---
 - hosts: utility
-  become: yes
+  become: true
   become_method: sudo
   roles:
     - network

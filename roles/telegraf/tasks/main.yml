@@ -54,5 +54,5 @@
 - name: Enable telegraf
   runit:
     name: telegraf
-    enabled: yes
+    enabled: true
     state: started

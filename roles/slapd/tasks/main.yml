@@ -52,7 +52,7 @@
     src: "{{ item }}.ldif"
     bind_dn: "cn=config"
     bind_passwd: "{{ slapd_olcRootPW | b64encode }}"
-    base64_passwd: True
+    base64_passwd: true
   with_items: "{{ LDIFfiles }}"
   when: inventory_hostname == groups['dc'][0]
 
@@ -61,7 +61,7 @@
     src: /tmp/sync.ldif
     bind_dn: "cn=config"
     bind_passwd: "{{ slapd_olcRootPW | b64encode }}"
-    base64_passwd: True
+    base64_passwd: true
   when: inventory_hostname != groups['dc'][0]
 
 - name: Add sasl configuration

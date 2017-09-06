@@ -16,8 +16,8 @@
   user:
     name: constellation
     state: present
-    system: yes
-    createhome: no
+    system: true
+    createhome: false
 
 - name: Create /opt/constellation
   file:
@@ -68,7 +68,7 @@
     state: latest
     virtualenv: /opt/constellation/venv
     virtualenv_python: python3
-  become: yes
+  become: true
   become_user: constellation
 
 - name: Install Constellation Modules
@@ -78,7 +78,7 @@
     virtualenv: /opt/constellation/venv
     virtualenv_python: python3
   with_items: "{{ ConstellationApps }}"
-  become: yes
+  become: true
   become_user: constellation
   loop_control:
     label: "{{ item.name }}"

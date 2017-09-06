@@ -79,5 +79,5 @@
 - name: Enable rsyslogd
   runit:
     name: rsyslogd
-    enabled: yes
+    enabled: true
     state: started

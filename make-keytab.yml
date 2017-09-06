@@ -1,10 +1,10 @@
 ---
 - hosts: dc[0]
-  become: yes
+  become: true
   become_method: sudo
   vars_prompt:
     - name: "service"
       prompt: "Keytab Service"
-      private: no
+      private: false
   roles:
     - make_keytab

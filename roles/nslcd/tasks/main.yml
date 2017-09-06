@@ -25,7 +25,10 @@
     - nslcd
 
 - name: Add ldap to nsswitch
-  lineinfile: "dest=/etc/nsswitch.conf regexp='^{{ item }}:' insertafter=regex line='{{ item }}:         files ldap'"
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^{{ item }}:'
+    line: '{{ item }}:         files ldap'
   with_items:
     - passwd
     - group

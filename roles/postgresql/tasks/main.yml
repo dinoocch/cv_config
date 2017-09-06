@@ -12,12 +12,12 @@
 - name: Enable PostgreSQL
   runit:
     name: postgresql
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Check if postgresql-libs is held
   command: xbps-query postgresql-libs
-  check_mode: no
+  check_mode: false
   changed_when: false
   register: psql_libs
 

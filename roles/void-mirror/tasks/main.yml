@@ -62,7 +62,7 @@
 - name: Enable sync service
   runit:
     name: void-mirror
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Install nginx config

@@ -1,23 +1,29 @@
 ---
 - name: Configure firewall for ssh-box
-  copy: src=ssh-box.rules dest=/etc/iptables.d/ssh-box.rules owner=root group=root mode=0640
+  copy:
+    src: ssh-box.rules
+    dest: /etc/iptables.d/ssh-box.rules
+    owner: root
+    group: root
+    mode: 0640
   notify:
-  - iptables
+    - iptables
 
 - name: Install ssh-box packages
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - bc
-    - git-all
-    - irssi
-    - irssi-perl
-    - mosh
-    - screen
-    - tmux
-    - weechat
-    - weechat-aspell
-    - weechat-lua
-    - weechat-perl
-    - weechat-python
-    - weechat-ruby
-    - weechat-tcl
+  xbps:
+    pkg:
+      - bc
+      - git-all
+      - irssi
+      - irssi-perl
+      - mosh
+      - screen
+      - tmux
+      - weechat
+      - weechat-aspell
+      - weechat-lua
+      - weechat-perl
+      - weechat-python
+      - weechat-ruby
+      - weechat-tcl
+    state: present

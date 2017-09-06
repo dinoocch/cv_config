@@ -19,20 +19,20 @@
     group: root
     mode: 0640
   notify:
-  - iptables
+    - iptables
 
 - name: Create the account-services group
   group:
     name: cv_account
     state: present
-    system: yes
+    system: true
 
 - name: Create the account-servicess user
   user:
     name: cv_account
     group: cv_account
     state: present
-    system: yes
+    system: true
 
 - name: Create account services directory
   file:
@@ -64,7 +64,7 @@
     owner: root
     group: cv_account
     mode: 0750
-    state: directory 
+    state: directory
   notify:
     - account-services
 
@@ -135,7 +135,7 @@
 - name: Configure account-services service (3/3)
   runit:
     name: account-services
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Add account sites
@@ -157,7 +157,7 @@
     dest: /etc/nginx/sites-enabled/{{ item }}.conf
     owner: root
     group: root
-    state: link 
+    state: link
   with_items:
     - account
     - accounts

@@ -1,12 +1,12 @@
 ---
 - hosts: gateway
-  gather_facts: no
+  gather_facts: false
   serial: 1
   roles:
     - sg-ansible-setup
 
 - hosts: gateway
-  become: yes
+  become: true
   become_method: doas
   serial: 1
   roles:

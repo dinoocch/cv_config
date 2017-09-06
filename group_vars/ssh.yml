@@ -2,4 +2,4 @@
 sshd_AllowGroups:
   - Lounge Users
 
-persistMount: yes
+persistMount: true

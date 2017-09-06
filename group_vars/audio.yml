@@ -3,4 +3,4 @@ sshd_AllowGroups:
   - Local Admins
   - Media Admins
 
-persistMount: yes
+persistMount: true

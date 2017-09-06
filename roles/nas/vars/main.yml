@@ -1,1 +1,2 @@
+---
 nas_rsyncd_passwd: "{{ lookup('file', 'secret/nas_rsyncd_passwd') }}"

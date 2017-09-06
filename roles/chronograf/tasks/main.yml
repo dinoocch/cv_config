@@ -7,7 +7,7 @@
 - name: Enable chronograf
   runit:
     name: chronograf
-    enabled: yes
+    enabled: true
     state: started
 
 - name: Install passlib

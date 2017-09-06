@@ -2,8 +2,8 @@
 - name: Add Printing Packages
   xbps:
     pkg:
-    - cups
-    - cups-filters
+      - cups
+      - cups-filters
     state: present
 
 - name: Copy CUPS configuration data
@@ -60,5 +60,5 @@
 - name: Enable CUPS service
   runit:
     name: cupsd
-    enabled: yes
+    enabled: true
     state: started

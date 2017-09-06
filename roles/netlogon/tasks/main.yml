@@ -1,27 +1,48 @@
 ---
 - name: Install netlogon packages
-  xbps: pkg={{ item }} state=present
-  with_items:
-    - hxtools
-    - libnfs
-    - mit-krb5
-    - nfs-utils
-    - pam-krb5
-    - pam-mount
+  xbps:
+    pkg:
+      - hxtools
+      - libnfs
+      - mit-krb5
+      - nfs-utils
+      - pam-krb5
+      - pam-mount
+    state: present
 
 - name: Configure system-auth
-  copy: src=system-auth dest=/etc/pam.d/system-auth owner=root group=root mode=0644
+  copy:
+    src: system-auth
+    dest: /etc/pam.d/system-auth
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Configure pam_mount
-  template: src=pam_mount.conf.xml dest=/etc/security/pam_mount.conf.xml owner=root group=root mode=0644
+  template:
+    src: pam_mount.conf.xml
+    dest: /etc/security/pam_mount.conf.xml
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Copy firewall rules
-  copy: src=netlogon.rules dest=/etc/iptables.d/netlogon.rules owner=root group=root mode=0640
+  copy:
+    src: netlogon.rules
+    dest: /etc/iptables.d/netlogon.rules
+    owner: root
+    group: root
+    mode: 0640
   notify:
     - iptables
 
 - name: Grant Server Admins full sudo
-  copy: src=cv.base dest=/etc/sudoers.d/cv_base owner=root group=root mode=0644
+  copy:
+    src: cv.base
+    dest: /etc/sudoers.d/cv_base
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Create sudo lecture folder
   file:
@@ -32,7 +53,17 @@
     mode: 0755
 
 - name: Copy sudo lecture
-  copy: src=bee.lecture dest=/usr/local/share/sudo/bee.lecture owner=root group=root mode=0644
+  copy:
+    src: bee.lecture
+    dest: /usr/local/share/sudo/bee.lecture
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Copy sudo lecture config
-  copy: src=lecture dest=/etc/sudoers.d/lecture owner=root group=root mode=0644
+  copy:
+    src: lecture
+    dest: /etc/sudoers.d/lecture
+    owner: root
+    group: root
+    mode: 0644

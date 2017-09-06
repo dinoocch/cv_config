@@ -1,10 +1,11 @@
 ---
 - name: Fail if no service
-  fail: msg="No service defined. Requires 'service'"
+  fail:
+    msg: "No service defined. Requires 'service'"
   when: service is undefined
 
 - name: Check if keytab already exists
-  sudo: no
+  sudo: false
   local_action: stat path="secret/krb5_{{ service | regex_replace('/', '-') }}.keytab"
   register: keytab_stat
 
@@ -17,9 +18,14 @@
   when: keytab_stat.stat.exists == False
 
 - name: Fetch keytab to secrets
-  fetch: src=/tmp/krb5_{{ service | regex_replace('/', '-') }}.keytab dest=secret/krb5_{{ service | regex_replace('/', '-') }}.keytab flat=yes
+  fetch:
+    src: /tmp/krb5_{{ service | regex_replace('/', '-') }}.keytab
+    dest: secret/krb5_{{ service | regex_replace('/', '-') }}.keytab
+    flat: true
   when: keytab_stat.stat.exists == False
 
 - name: Remove remote keytab
-  file: path=/tmp/krb5_{{ service | regex_replace('/', '-') }}.keytab state=absent
+  file:
+    path: /tmp/krb5_{{ service | regex_replace('/', '-') }}.keytab
+    state: absent
   when: keytab_stat.stat.exists == False
