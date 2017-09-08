@@ -1,0 +1,2 @@
+---
+jira_dbpassword: "{{ lookup('file', 'secret/jira_dbpassword') }}"

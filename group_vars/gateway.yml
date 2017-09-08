@@ -276,12 +276,13 @@ cv_hosts:
     visible_to:
       - cv-byod
   - name: oxygen
-    desc: Reserved for future use
+    desc: Monitoring
     mac: 00:22:19:27:e2:d5
     addr: 192.168.42.8
     dns:
       CNAME:
         - o
+        - jira
     pf:
       out:
         - proto: tcp
@@ -468,3 +469,9 @@ cv_hosts:
   - name: mwynn-wireless
     mac: a0:88:69:70:0a:67
     addr: 192.168.42.250
+  - name: dino-wired
+    mac: c8:5b:76:32:98:78
+    addr: 192.168.42.251
+  - name: dino-wireless
+    mac: e4:b3:18:e6:1c:f7
+    addr: 192.168.42.252

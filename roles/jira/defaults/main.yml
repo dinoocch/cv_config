@@ -1,0 +1,4 @@
+---
+jira_home: /var/lib/jira
+jira_root: /opt/atlassian/jira
+java_home: /usr/lib/jvm/oracle-jre
