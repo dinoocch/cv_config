@@ -40,14 +40,19 @@
 
 - name: Copy config
   copy:
-    src: '{{ item }}'
-    dest: /opt/xbps-mini-repo/{{ item }}
+    src: xbps-src.conf
+    dest: /opt/xbps-mini-repo/xbps-src.conf
     owner: root
     group: root
     mode: 0644
-  with_items:
-    - packages.list
-    - xbps-src.conf
+
+- name: Template package list
+  template:
+    src: packages.list.j2
+    dest: /opt/xbps-mini-repo/packages.list
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Copy signing keys
   copy:

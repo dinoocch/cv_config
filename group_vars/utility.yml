@@ -23,3 +23,10 @@ constellation_keyfile_path: /var/lib/acme/live/constellation.collegiumv.org/priv
 
 rsyslog_remote: ""
 rsyslog_server: true
+
+mini_builder_packages:
+  - "google-chrome"
+  - "msttcorefonts"
+  - "sauerbraten"
+  - "slack-desktop"
+  - "wps-office"
