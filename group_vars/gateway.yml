@@ -320,8 +320,6 @@ cv_hosts:
         - proto: tcp
           dest: any
           port: "{80 443}"
-    visible_to:
-      - cv-byod
   - name: aluminium
     desc: Primary Fileserver
     mac: d0:50:99:27:89:7c
