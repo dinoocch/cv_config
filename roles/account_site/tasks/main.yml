@@ -46,7 +46,7 @@
   git:
     repo: https://github.com/collegiumv/cv_account.git
     dest: /opt/account-services
-    version: c45f72cb29643de2edc19807bf4c7a5e2d858959
+    version: 11cbf15e2be314ae4e95650b9c2fd3f9d06fd92c
     umask: "0022"
   notify:
     - account-services

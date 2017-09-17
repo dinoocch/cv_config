@@ -20,5 +20,9 @@
     "krb5":{
         "aprinc":"account-services/admin",
         "atab":"/opt/account-services/krb5.keytab"
+    },
+    "papercut":{
+	"url":"https://paper.collegiumv.org/rpc/api/xmlrpc",
+	"secret":"{{ papercut_secret }}"
     }
 }
