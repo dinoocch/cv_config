@@ -1,9 +1,6 @@
 [submodule "roles/nas/files/znapdragon"]
 	path = roles/nas/files/znapdragon
 	url = git://github.com/collegiumv/znapdragon.git
-[submodule "roles/welcome_site/files/welcome"]
-	path = roles/welcome_site/files/welcome
-	url = git://github.com/collegiumv/cv_welcome.git
 [submodule "roles/jekyll"]
 	path = roles/jekyll
 	url = git://github.com/void-ansible-roles/jekyll.git
@@ -82,9 +79,9 @@
 [submodule "roles/nginx"]
 	path = roles/nginx
 	url = git://github.com/void-ansible-roles/nginx.git
-[submodule "library/influxdb_user"]
-	path = library/influxdb_user
-	url = https://github.com/kulinacs/ansible-influxdb_user
-[submodule "library/influxdb_privs"]
-	path = library/influxdb_privs
-	url = https://github.com/kulinacs/ansible-influxdb_privs
+[submodule "roles/influxdb/library/influxdb_user"]
+	path = roles/influxdb/library/influxdb_user
+	url = git://github.com/kulinacs/ansible-influxdb_user.git
+[submodule "roles/influxdb/library/influxdb_privs"]
+	path = roles/influxdb/library/influxdb_privs
+	url = git://github.com/kulinacs/ansible-influxdb_privs.git
