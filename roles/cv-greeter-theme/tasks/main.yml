@@ -1,24 +1,17 @@
 ---
-- name: Copy theme
-  git:
-    repo: git://github.com/m-wynn/sddm_wynn-theme.git
-    dest: /usr/share/sddm/themes/sddm_wynn-theme
-  notify: sddm
-
-- name: Correct permissions on theme folder
-  file:
-    path: /usr/share/sddm/themes/sddm_wynn-theme
-    owner: root
-    group: root
-    mode: ugo+rX
-    recurse: true
-  notify: sddm
-
-- name: Install QT dependencies
+- name: Install theme dependencies
   xbps:
     pkg:
+      - git-all
       - qt5-graphicaleffects
       - qt5-quickcontrols2
+
+- name: Copy theme
+  git:
+    repo: git://github.com/collegiumv/sddm_wynn-theme.git
+    dest: /usr/share/sddm/themes/sddm_wynn-theme
+    depth: 1
+  notify: sddm
 
 - name: Download assets
   get_url:
