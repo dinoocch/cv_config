@@ -1,45 +1,48 @@
 ---
-- name: Install Greeter Dependencies
-  xbps:
-    pkg:
-      - git-all
-      - ImageMagick
-    state: present
-
-- name: Deploy cv-greeter-theme
+- name: Copy theme
   git:
-    repo: https://github.com/collegiumv/cv_greeter_theme.git
-    dest: /usr/share/lightdm-webkit/themes/cv
-    force: true
+    repo: git://github.com/m-wynn/sddm_wynn-theme.git
+    dest: /usr/share/sddm/themes/sddm_wynn-theme
+  notify: sddm
 
-- name: Force mode on theme folder
+- name: Correct permissions on theme folder
   file:
-    path: /usr/share/lightdm-webkit/themes/cv
-    state: directory
-    recurse: true
+    path: /usr/share/sddm/themes/sddm_wynn-theme
     owner: root
     group: root
     mode: ugo+rX
+    recurse: true
+  notify: sddm
+
+- name: Install QT dependencies
+  xbps:
+    pkg:
+      - qt5-graphicaleffects
+      - qt5-quickcontrols2
 
 - name: Download assets
   get_url:
-    url: "{{ item }}"
-    dest: /usr/share/lightdm-webkit/themes/cv/
+    url: "{{ greeter_theme.wallpaper }}"
+    dest: /usr/share/sddm/themes/sddm_wynn-theme/user_background.png
     owner: root
     group: root
     mode: 0644
-  with_items:
-    - http://code.jquery.com/jquery-2.1.4.min.js
-    - http://upload.wikimedia.org/wikipedia/commons/c/c6/VISTA%27s_infrared_view_of_the_Orion_Nebula.jpg
+  notify: sddm
 
-- name: Scale Wallpaper down
-  command: convert {{ wallpaper_src }} -resize 3000x3000 -rotate 90 {{ wallpaper_dest }}
-  args:
-    creates: "{{ wallpaper_dest }}"
-
-- name: Fix Wallpaper Permissions
-  file:
-    path: /usr/share/lightdm-webkit/themes/cv/wallpaper.jpg
+- name: Copy logo
+  copy:
+    src: logo.png
+    dest: /usr/share/sddm/themes/sddm_wynn-theme/logo.png
     owner: root
     group: root
     mode: 0644
+  notify: sddm
+
+- name: Install theme configuration file
+  template:
+    src: theme.conf
+    dest: /usr/share/sddm/themes/sddm_wynn-theme/theme.conf.user
+    owner: root
+    group: root
+    mode: 0644
+  notify: sddm

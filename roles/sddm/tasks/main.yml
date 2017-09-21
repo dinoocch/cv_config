@@ -1,0 +1,19 @@
+---
+- name: Install sddm
+  xbps:
+    pkg: sddm
+    state: present
+
+- name: Install sddm configuration file
+  template:
+    src: sddm.conf
+    dest: /etc/sddm.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: sddm
+
+- name: Enable sddm
+  runit:
+    name: sddm
+    enabled: true

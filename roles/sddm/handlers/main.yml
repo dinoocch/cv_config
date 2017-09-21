@@ -1,0 +1,5 @@
+---
+- name: sddm
+  runit:
+    name: sddm
+    state: restarted

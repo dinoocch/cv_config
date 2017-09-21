@@ -1,3 +1,10 @@
 ---
-LWG_theme_name: cv
 workstation_mount: true
+greeter_theme:
+  accent1: '#4dd0e1'
+  accent2: '#00796b'
+  accent2_hover: '#009688'
+  default_session: 'cinnamon'
+  username_entry: 'fill'
+  wallpaper: 'https://verdict4u.files.wordpress.com/2016/09/google-now-wallpaper-1.png'
+sddm_theme_name: sddm_wynn-theme
