@@ -4,7 +4,7 @@
 dn:
 objectClass: OpenLDAProotDSE
 {% for dc in groups['dc'] %}
-altServer: ldap://{{ hostvars[dc]['ansible_fqdn'] }}
+altServer: ldap://{{ dc }}
 {% endfor %}
 namingContexts: dc=collegiumv,dc=org
 supportedSASLMechanisms: GSSAPI

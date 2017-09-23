@@ -10,7 +10,7 @@ olcAuthzRegexp: {1}"uid=host/([^/]*).collegiumv.org,(cn=collegiumv.org)?,cn=gss-
 exact: olcServerID
 {% if groups['dc']|length > 1 %}
 {% for dc in groups['dc'] %}
-olcServerID: {{ loop.index-1 }} ldap://{{ hostvars[dc]['ansible_fqdn'] }}
+olcServerID: {{ loop.index-1 }} ldap://{{ dc }}
 {% endfor %}
 {% endif %}
 
@@ -59,7 +59,7 @@ olcDbIndex: objectclass,entryCSN,entryUUID eq
 olcMirrorMode: TRUE
 exact: olcSyncRepl
 {% for dc in groups['dc'] %}
-olcSyncRepl: {{ '{' }}{{ loop.index-1 }}{{ '}' }}rid=01{{ loop.index-1 }} provider="ldap://{{ hostvars[dc]['ansible_fqdn'] }}" binddn="cn=config" bindmethod=simple credentials="{{ slapd_olcRootPW }}" searchbase="dc=collegiumv,dc=org" type=refreshAndPersist retry="5 5 120 +" timeout=3
+olcSyncRepl: {{ '{' }}{{ loop.index-1 }}{{ '}' }}rid=01{{ loop.index-1 }} provider="ldap://{{ dc }}" binddn="cn=config" bindmethod=simple credentials="{{ slapd_olcRootPW }}" searchbase="dc=collegiumv,dc=org" type=refreshAndPersist retry="5 5 120 +" timeout=3
 {% endfor %}
 {% endif %}
 # A few entries use userPassword

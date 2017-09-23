@@ -1,6 +1,6 @@
 *filter
 -A INPUT -p tcp --dport 389 -j ACCEPT
 {% for dc in groups['dc'] %}
--A OUTPUT -d {{ hostvars[dc]['ansible_default_ipv4']['address'] }} -p tcp --dport 389 -j ACCEPT
+-A OUTPUT -d {{ dc }} -p tcp --dport 389 -j ACCEPT
 {% endfor %}
 COMMIT
