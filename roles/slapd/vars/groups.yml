@@ -77,3 +77,11 @@ slapd_groups:
       - pxm166330
       - sheila.kelly
       - vbrunell
+
+  - name: Jira Users
+    gidNumber: 1355
+    members:
+      - kulinacs
+      - dinoocch
+      - m_wynn
+      - tristandhill
