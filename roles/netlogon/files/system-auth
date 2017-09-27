@@ -20,6 +20,8 @@ password  required    pam_deny.so
 session   optional    pam_umask.so    usergroups
 session   optional    pam_mount.so
 session   required    pam_limits.so
+session   optional    pam_ck_connector.so
+session   optional    pam_elogind.so
 session   sufficient  pam_unix.so
 session	  sufficient  pam_krb5.so
 session   required    pam_deny.so

@@ -3,6 +3,7 @@
   xbps:
     pkg:
       - hxtools
+      - elogind
       - libnfs
       - mit-krb5
       - nfs-utils
