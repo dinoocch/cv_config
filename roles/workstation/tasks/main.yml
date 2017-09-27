@@ -172,7 +172,6 @@
     state: link
     force: true
   with_items:
-    - lightdm
     - cinnamon-screensaver
     - cinnamon-desktop
     - su
@@ -184,7 +183,6 @@
     create: true
     state: present
   with_items:
-    - lightdm
     - cinnamon-screensaver
     - cinnamon-desktop
     - su
