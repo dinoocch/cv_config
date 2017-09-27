@@ -149,17 +149,21 @@
     pkg: gnutls-32bit
     state: present
 
-- name: Copy lightdm scripts
+- name: Copy fixscreen scripts
   copy:
-    src: "{{ item }}"
-    dest: /usr/local/bin/{{ item }}
+    src: fixScreens
+    dest: /usr/local/bin/fixScreens
     owner: root
     group: root
     mode: 0755
-  with_items:
-    - fixScreens
-    - lightdm-setup
-    - lightdm-cleanup
+
+- name: Copy Xsetup script
+  copy:
+    src: Xsetup
+    dest: /usr/share/sddm/scripts/Xsetup
+    owner: root
+    group: root
+    mode: 0755
 
 - name: Make various services use system-auth
   file:
