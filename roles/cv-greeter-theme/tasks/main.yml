@@ -11,6 +11,7 @@
     repo: git://github.com/collegiumv/sddm_wynn-theme.git
     dest: /usr/share/sddm/themes/sddm_wynn-theme
     depth: 1
+    umask: '022'
   notify: sddm
 
 - name: Download assets
