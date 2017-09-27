@@ -200,6 +200,14 @@
     group: root
     mode: 0644
 
+- name: Copy zprofile
+  copy:
+    src: zprofile
+    dest: /etc/zprofile
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Copy sudoers file
   copy:
     src: cv.sudoers
