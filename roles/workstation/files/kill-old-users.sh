@@ -4,7 +4,7 @@
 KILLSECONDS=2700
 
 export DISPLAY=":0.0"
-PERSON=$(who | grep ":0" | cut -d" " -f 1)
+PERSON=$(loginctl | awk '/seat0/ {print $3;exit}')
 LOCKEDTIME=0
 
 if pgrep -u "$PERSON" cinnamon-screen ; then #we check for the shotened name as that's what pgrep returns
