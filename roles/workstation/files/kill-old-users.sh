@@ -23,6 +23,9 @@ screensaver_kill() {
         echo "XScreenTime: $xscreentime"
         echo "Now: $now"
         echo "XScreenDate: $xscreendate"
+    elif pgrep -u "$person" i3lock > /dev/null 2>&1; then
+        i3pid=$(pgrep -u "$person" i3lock | head -n 1)
+        lockedtime=$(ps -o etimes= -p "$i3pid")
     fi
     if [ -z "$lockedtime" ]; then
         return
